@@ -32,8 +32,6 @@ export default function App() {
         setErrorMessage('');
         const response = await getPhotos(query, page);
 
-        console.log(response);
-
         if (response.data.results.length === 0) {
           setError(true);
           setErrorMessage(errorMessages.no_data);
