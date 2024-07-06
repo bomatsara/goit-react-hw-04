@@ -93,13 +93,13 @@ export default function App() {
   return (
     <>
       <Section className="section-search" container={false} gap={false}>
-        <SearchBar onSubmit={handleSearch} query={query} errorHandle={setErrorMessage} />
+        <SearchBar onSubmit={handleSearch} />
       </Section>
 
       <Section style={{
         textAlign: 'center',
       }} className="section-content">
-        {photos && <ImageGallery
+        {photos.length > 0 && <ImageGallery
           photos={photos}
           onPhotoClick={openModal}
           firstNewPhotoRef={firstNewPhotoRef}

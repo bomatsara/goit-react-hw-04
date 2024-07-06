@@ -1,18 +1,15 @@
 import css from './SearchBar.module.css';
 import { FaMagnifyingGlass } from 'react-icons/fa6';
 import errorMessages from '../../data/error_messages.json';
+import toast from 'react-hot-toast';
 
 export default function SearchBar({ onSubmit, query, errorHandle }) {
   const handleSubmit = e => {
     e.preventDefault();
     const value = e.target.elements.search.value;
 
-    if (query === value) {
-      return;
-    }
-
     if (value.trim() === '') {
-      errorHandle(errorMessages.empty_query);
+      toast.error(errorMessages.empty_query);
       return;
     }
 
